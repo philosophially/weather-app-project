@@ -22,7 +22,7 @@
   width: 100%;
   height: 104%;
   opacity: 0.3;
-  background-image: url("images/allweather.jpeg");
+  background-image: url("images/landing.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
@@ -130,18 +130,28 @@ h6 {
   text-transform: capitalize;
 }
 
+#forecast {
+  color: #38598b;
+  padding: 0 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weather-forecast-day {
+  font-size: 16px;
+}
+
+.weather-forecast-temp {
+  font-size: 13px;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.4;
+}
+
 .current-info {
   padding: 0 15px 0 15px;
   list-style: none;
-}
-
-.third-col {
-  font-weight: bolder;
-}
-
-.row-cols-4 {
-  color: #38598b;
-  padding: 0 15px;
 }
 
 .footer-link {

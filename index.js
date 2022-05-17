@@ -52,7 +52,60 @@ console.log(formatDayDateTime(now));
 let dayDateTime = document.querySelector("#day-date-time");
 dayDateTime.innerHTML = `${formatDayDateTime(now)}`;
 
-// 🕵️‍♀️ This is the main Search Engine
+// 🕵️‍♀️ These are functions for the forecast
+
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+    <div class="col-2">
+      <div class="weather-forecast-day">${formatForecastDay(
+        forecastDay.dt
+      )}</div>
+      <img
+        src="https://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="38"/>
+      <div class="weather-forecast-temp">
+        <span class="weather-forecast-temp-max">${Math.round(
+          forecastDay.temp.max
+        )}° </span>
+        <span class="weather-forecast-temp-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
+      </div>
+    </div>
+`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "c3333c25f62df25da6b4c9597ac6f645";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+// 🕵️‍♀️ These are the functions for the main weather and the search engine
 
 function displayWeatherCondition(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -71,6 +124,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind-speed").innerHTML = `Wind: ${Math.round(
     response.data.wind.speed
   )}km/hr`;
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
