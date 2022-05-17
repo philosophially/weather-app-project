@@ -93,19 +93,19 @@ input {
 
 h1 {
   padding: 0 15px;
-  text-align: end;
+  text-align: center;
   color: #5585b5;
   text-transform: uppercase;
 }
 
 h2 {
   padding: 0 15px;
-  text-align: end;
+  text-align: center;
   color: #5585b5;
 }
 
 h6 {
-  text-align: end;
+  text-align: center;
   color: #53a8b6;
 }
 
@@ -121,11 +121,6 @@ h6 {
   text-decoration: underline;
 }
 
-#fahrenheit-link:hover {
-  color: #53a8b6;
-  text-decoration: underline;
-}
-
 #description {
   text-transform: capitalize;
 }
@@ -135,6 +130,7 @@ h6 {
   padding: 0 15px;
   text-align: center;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .weather-forecast-day {
