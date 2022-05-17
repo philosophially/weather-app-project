@@ -111,14 +111,9 @@ h6 {
 
 .units {
   position: relative;
-  top: -10px;
-  font-size: 15px;
+  top: -8px;
+  font-size: 18px;
   transition: all 200ms ease-in-out;
-}
-
-#celsius-link:hover {
-  color: #53a8b6;
-  text-decoration: underline;
 }
 
 #description {
