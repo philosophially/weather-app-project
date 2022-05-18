@@ -137,13 +137,14 @@ function displayWeatherCondition(response) {
 
 function changeBackgroundImage() {
   if (response.data.weather[0].id <= 299) {
-    document.body.style.backgroundImage = "url('images/thunderstorm-200.png')";
+    document.body.style.backgroundImage =
+      "url('./images/thunderstorm-200.png')";
   } else if (response.data.weather[0].id <= 599) {
-    document.body.style.backgroundImage = "url('images/rainy-300-500.png')";
+    document.body.style.backgroundImage = "url('./images/rainy-300-500.png')";
   } else if (response.data.weather[0].id <= 699) {
-    document.body.style.backgroundImage = "url('images/snow-600.png')";
+    document.body.style.backgroundImage = "url('./images/snow-600.png')";
   } else if (response.data.weather[0].id <= 799) {
-    document.body.style.backgroundImage = "url('images/dust-700.jpg')";
+    document.body.style.backgroundImage = "url('./images/dust-700.jpg')";
   } else {
     document.body.style.backgroundImage = "url('./images/clear-800.png')";
   }
