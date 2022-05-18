@@ -135,6 +135,20 @@ function displayWeatherCondition(response) {
   getForecast(response.data.coord);
 }
 
+function changeBackgroundImage() {
+  if (response.data.weather[0].id <= 299) {
+    document.body.style.backgroundImage = "url('images/thunderstorm-200.png')";
+  } else if (response.data.weather[0].id <= 599) {
+    document.body.style.backgroundImage = "url('images/rainy-300-500.png')";
+  } else if (response.data.weather[0].id <= 699) {
+    document.body.style.backgroundImage = "url('images/snow-600.png')";
+  } else if (response.data.weather[0].id <= 799) {
+    document.body.style.backgroundImage = "url('images/dust-700.jpg')";
+  } else {
+    document.body.style.backgroundImage = "url('./images/clear-800.png')";
+  }
+}
+
 function search(city) {
   let apiKey = "c3333c25f62df25da6b4c9597ac6f645";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -148,7 +162,7 @@ function searchCity(event) {
 }
 
 let form = document.querySelector(".search-form");
-form.addEventListener("submit", searchCity);
+form.addEventListener("submit", searchCity, changeBackgroundImage);
 
 search("Singapore");
 
