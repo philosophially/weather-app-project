@@ -1,6 +1,5 @@
 // 🕵️‍♀️ This is the Day, Date and Time
 let now = new Date();
-console.log(now);
 
 let hours = now.getHours();
 if (hours < 10) {
@@ -46,8 +45,6 @@ function formatDayDateTime(date) {
   let formattedDayDateTime = `${currentDay} • ${currentMonth} ${currentDate} • ${currentHour}:${currentMinute}`;
   return formattedDayDateTime;
 }
-
-console.log(formatDayDateTime(now));
 
 let dayDateTime = document.querySelector("#day-date-time");
 dayDateTime.innerHTML = `${formatDayDateTime(now)}`;
@@ -140,18 +137,19 @@ function displayWeatherCondition(response) {
 function changeBackgroundImage(id) {
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundAttachment = "inherit";
   if (id <= 299) {
     document.body.style.backgroundImage =
       "url('./images/thunderstorm-200.png')";
   } else if (id <= 599) {
     document.body.style.backgroundImage = "url('./images/rainy-300-500.png')";
   } else if (id <= 699) {
-    document.body.style.backgroundImage = "url('./images/snow-600.png')";
-  } else if (id <= 799) {
+    document.body.style.backgroundImage = "url('./images/snow-600.jpg')";
+  } else if (id <= 790) {
     document.body.style.backgroundImage = "url('./images/dust-700.jpg')";
+  } else if (id <= 800) {
+    document.body.style.backgroundImage = "url('./images/clear-800.jpg')";
   } else {
-    document.body.style.backgroundImage = "url('./images/clear-800.png')";
+    document.body.style.backgroundImage = "url('./images/cloud-801.png')";
   }
 }
 
