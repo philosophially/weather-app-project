@@ -133,17 +133,22 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
+
+  changeBackgroundImage(response.data.weather[0].id);
 }
 
-function changeBackgroundImage() {
-  if (response.data.weather[0].id <= 299) {
+function changeBackgroundImage(id) {
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundAttachment = "inherit";
+  if (id <= 299) {
     document.body.style.backgroundImage =
       "url('./images/thunderstorm-200.png')";
-  } else if (response.data.weather[0].id <= 599) {
+  } else if (id <= 599) {
     document.body.style.backgroundImage = "url('./images/rainy-300-500.png')";
-  } else if (response.data.weather[0].id <= 699) {
+  } else if (id <= 699) {
     document.body.style.backgroundImage = "url('./images/snow-600.png')";
-  } else if (response.data.weather[0].id <= 799) {
+  } else if (id <= 799) {
     document.body.style.backgroundImage = "url('./images/dust-700.jpg')";
   } else {
     document.body.style.backgroundImage = "url('./images/clear-800.png')";
@@ -163,7 +168,7 @@ function searchCity(event) {
 }
 
 let form = document.querySelector(".search-form");
-form.addEventListener("submit", searchCity, changeBackgroundImage);
+form.addEventListener("submit", searchCity);
 
 search("Singapore");
 
