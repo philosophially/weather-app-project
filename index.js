@@ -145,7 +145,7 @@ function changeBackgroundImage(id) {
   } else if (id <= 699) {
     document.body.style.backgroundImage = "url('./images/snow-600.jpg')";
   } else if (id <= 790) {
-    document.body.style.backgroundImage = "url('./images/dust-700.jpg')";
+    document.body.style.backgroundImage = "url('./images/mist-700.jpg')";
   } else if (id <= 800) {
     document.body.style.backgroundImage = "url('./images/clear-800.jpg')";
   } else {
